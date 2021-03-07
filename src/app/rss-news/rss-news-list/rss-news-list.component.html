@@ -1,0 +1,10 @@
+<div class="list-group" *ngFor="let rssNews of rssNewsList">
+      <app-rss-news-item
+        [rssNews]="rssNews"
+        (newsSelected)="onNewsSelected($event)">
+      </app-rss-news-item>
+</div>
+
+<p>
+  <button class="btn btn-primary" (click)="onAddNews()">Add News</button>
+</p>

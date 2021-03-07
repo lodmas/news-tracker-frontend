@@ -1,0 +1,22 @@
+
+<button (click)="loadNews()" class="btn btn-primary">Load News</button>
+
+<ul class="nav nav-tabs">
+
+  <li class="nav-item" [ngClass]="{active: chosenKeyword === 'All'}">
+    <a (click)="onChooseKeyword('All')" class="nav-link" aria-current="page" href="#">All</a>
+  </li>
+
+  <li class="nav-item" [ngClass]="{active: chosenKeyword === keyValue.key}"
+      *ngFor="let keyValue of newsMap | keyvalue">
+    <a (click)="onChooseKeyword(keyValue.key)" class="nav-link" aria-current="page" href="#">
+      {{ keyValue.key }}</a>
+  </li>
+
+</ul>
+
+<app-search
+  [searchElement]="getSearchElement()"
+  [rssNewsList]="getNewsBySearchElement()">
+</app-search>
+
